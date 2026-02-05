@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import {useTranslations, useLocale} from 'next-intl';
+import {Link} from '@/i18n/routing';
 import Logo from '@/components/Logo'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { 
   BookOpen, Code, Play, Award, Menu, X, Home, FileText, 
   Sparkles, Zap, Target, Users, TrendingUp, Check, 
@@ -10,6 +12,8 @@ import {
 } from 'lucide-react'
 
 export default function HomePage() {
+  const t = useTranslations();
+  const locale = useLocale();
   const [menuOpen, setMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -20,6 +24,8 @@ export default function HomePage() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const isRTL = locale === 'ar';
 
   return (
     <div className="min-h-screen text-white relative">
@@ -37,44 +43,48 @@ export default function HomePage() {
         isScrolled ? 'glass-strong shadow-glow-sm' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <Link href="/" className="flex items-center space-x-3 group">
+          <div className={`flex justify-between items-center h-20 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <Link href="/" className={`flex items-center space-x-3 group ${isRTL ? 'flex-row-reverse space-x-reverse' : ''}`}>
               <div className="transform transition-transform group-hover:scale-110">
                 <Logo size={48} animated={true} />
               </div>
               <div>
                 <span className="text-2xl font-display font-bold gradient-text block">Nextflow</span>
-                <span className="text-sm text-primary-300 font-semibold">Academy</span>
+                <span className="text-sm text-primary-300 font-semibold">{t('nav.academy')}</span>
               </div>
             </Link>
             
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-8`}>
               <Link href="/" className="group flex items-center space-x-2 hover:text-primary-400 transition">
                 <Home className="w-4 h-4 group-hover:animate-pulse" />
-                <span className="font-medium">Home</span>
+                <span className="font-medium">{t('nav.home')}</span>
               </Link>
               <Link href="/tutorials" className="group flex items-center space-x-2 hover:text-secondary-400 transition">
                 <BookOpen className="w-4 h-4 group-hover:animate-pulse" />
-                <span className="font-medium">Tutorials</span>
+                <span className="font-medium">{t('nav.tutorials')}</span>
               </Link>
               <Link href="/playground" className="group flex items-center space-x-2 hover:text-accent-400 transition">
                 <Play className="w-4 h-4 group-hover:animate-pulse" />
-                <span className="font-medium">Playground</span>
+                <span className="font-medium">{t('nav.playground')}</span>
               </Link>
               <Link href="/resources" className="group flex items-center space-x-2 hover:text-primary-400 transition">
                 <FileText className="w-4 h-4 group-hover:animate-pulse" />
-                <span className="font-medium">Resources</span>
+                <span className="font-medium">{t('nav.resources')}</span>
               </Link>
+              <LanguageSwitcher />
             </div>
 
             {/* Mobile menu button */}
-            <button 
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden glass p-2 rounded-lg hover:glass-strong transition"
-            >
-              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            <div className="md:hidden flex items-center space-x-2">
+              <LanguageSwitcher />
+              <button 
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="glass p-2 rounded-lg hover:glass-strong transition"
+              >
+                {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -82,10 +92,10 @@ export default function HomePage() {
         {menuOpen && (
           <div className="md:hidden glass-strong border-t border-white/10 animate-slide-down">
             <div className="px-4 py-6 space-y-4">
-              <Link href="/" className="block glass p-3 rounded-lg hover:glass-strong transition">Home</Link>
-              <Link href="/tutorials" className="block glass p-3 rounded-lg hover:glass-strong transition">Tutorials</Link>
-              <Link href="/playground" className="block glass p-3 rounded-lg hover:glass-strong transition">Playground</Link>
-              <Link href="/resources" className="block glass p-3 rounded-lg hover:glass-strong transition">Resources</Link>
+              <Link href="/" className="block glass p-3 rounded-lg hover:glass-strong transition">{t('nav.home')}</Link>
+              <Link href="/tutorials" className="block glass p-3 rounded-lg hover:glass-strong transition">{t('nav.tutorials')}</Link>
+              <Link href="/playground" className="block glass p-3 rounded-lg hover:glass-strong transition">{t('nav.playground')}</Link>
+              <Link href="/resources" className="block glass p-3 rounded-lg hover:glass-strong transition">{t('nav.resources')}</Link>
             </div>
           </div>
         )}
@@ -95,41 +105,42 @@ export default function HomePage() {
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="text-center relative z-10">
           <div className="inline-flex items-center glass px-4 py-2 rounded-full mb-8 animate-scale-in">
-            <Sparkles className="w-4 h-4 text-accent-400 mr-2" />
-            <span className="text-sm font-semibold text-accent-300">Welcome to the Future of Bioinformatics Learning</span>
+            <Sparkles className={`w-4 h-4 text-accent-400 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+            <span className="text-sm font-semibold text-accent-300">{t('hero.welcome')}</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold mb-6 animate-slide-up">
-            <span className="gradient-text">Master Nextflow</span>
+            <span className="gradient-text">{t('hero.title1')}</span>
             <br />
-            <span className="text-white">Build Amazing</span>
+            <span className="text-white">{t('hero.title2')}</span>
             <br />
-            <span className="gradient-text">Pipelines</span>
+            <span className="gradient-text">{t('hero.title3')}</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            Learn to build <span className="text-primary-400 font-semibold">scalable</span>, 
-            <span className="text-secondary-400 font-semibold"> portable</span>, and 
-            <span className="text-accent-400 font-semibold"> reproducible</span> bioinformatics workflows through 
-            interactive tutorials and hands-on practice
+            {t.rich('hero.description', {
+              scalable: (chunks) => <span className="text-primary-400 font-semibold">{chunks}</span>,
+              portable: (chunks) => <span className="text-secondary-400 font-semibold">{chunks}</span>,
+              reproducible: (chunks) => <span className="text-accent-400 font-semibold">{chunks}</span>,
+            })}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-scale-in" style={{ animationDelay: '0.4s' }}>
+          <div className={`flex flex-col sm:flex-row gap-6 justify-center animate-scale-in ${isRTL ? 'sm:flex-row-reverse' : ''}`} style={{ animationDelay: '0.4s' }}>
             <Link href="/tutorials" className="btn-primary group">
-              <span>Start Learning Journey</span>
-              <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" />
+              <span>{t('hero.startLearning')}</span>
+              <ArrowRight className={`w-5 h-5 ${isRTL ? 'mr-2' : 'ml-2'} inline group-hover:translate-x-1 transition-transform`} />
             </Link>
             <Link href="/playground" className="btn-ghost group">
-              <Play className="w-5 h-5 mr-2 inline group-hover:scale-110 transition-transform" />
-              <span>Try Interactive Playground</span>
+              <Play className={`w-5 h-5 ${isRTL ? 'ml-2' : 'mr-2'} inline group-hover:scale-110 transition-transform`} />
+              <span>{t('hero.tryPlayground')}</span>
             </Link>
           </div>
 
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <StatCard number="10+" label="Tutorials" icon={<BookOpen className="w-6 h-6" />} />
-            <StatCard number="50+" label="Lessons" icon={<Target className="w-6 h-6" />} />
-            <StatCard number="100%" label="Free" icon={<Sparkles className="w-6 h-6" />} />
-            <StatCard number="24/7" label="Access" icon={<Zap className="w-6 h-6" />} />
+            <StatCard number="10+" label={t('stats.tutorials')} icon={<BookOpen className="w-6 h-6" />} />
+            <StatCard number="50+" label={t('stats.lessons')} icon={<Target className="w-6 h-6" />} />
+            <StatCard number="100%" label={t('stats.free')} icon={<Sparkles className="w-6 h-6" />} />
+            <StatCard number="24/7" label={t('stats.access')} icon={<Zap className="w-6 h-6" />} />
           </div>
         </div>
       </section>
@@ -138,10 +149,10 @@ export default function HomePage() {
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            <span className="gradient-text-simple">Why Choose Us?</span>
+            <span className="gradient-text-simple">{t('features.title')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Everything you need to become a Nextflow expert
+            {t('features.subtitle')}
           </p>
         </div>
 
@@ -149,23 +160,38 @@ export default function HomePage() {
           <FeatureCard
             icon={<BookOpen className="w-12 h-12" />}
             gradient="from-primary-500 to-primary-600"
-            title="Interactive Tutorials"
-            description="Step-by-step lessons covering Nextflow basics to advanced pipeline development with real-world bioinformatics examples"
-            features={["Progressive Learning", "Hands-on Examples", "Real Workflows"]}
+            title={t('features.interactive.title')}
+            description={t('features.interactive.description')}
+            features={[
+              t('features.interactive.feature1'),
+              t('features.interactive.feature2'),
+              t('features.interactive.feature3')
+            ]}
+            isRTL={isRTL}
           />
           <FeatureCard
             icon={<Code className="w-12 h-12" />}
             gradient="from-secondary-500 to-secondary-600"
-            title="Code Playground"
-            description="Practice writing Nextflow workflows in an interactive editor with instant feedback and validation"
-            features={["Monaco Editor", "Live Preview", "Syntax Highlighting"]}
+            title={t('features.playground.title')}
+            description={t('features.playground.description')}
+            features={[
+              t('features.playground.feature1'),
+              t('features.playground.feature2'),
+              t('features.playground.feature3')
+            ]}
+            isRTL={isRTL}
           />
           <FeatureCard
             icon={<Award className="w-12 h-12" />}
             gradient="from-accent-500 to-accent-600"
-            title="Track Progress"
-            description="Monitor your learning journey, complete challenges, and earn recognition as you master new skills"
-            features={["Progress Tracking", "Achievements", "Certificates"]}
+            title={t('features.progress.title')}
+            description={t('features.progress.description')}
+            features={[
+              t('features.progress.feature1'),
+              t('features.progress.feature2'),
+              t('features.progress.feature3')
+            ]}
+            isRTL={isRTL}
           />
         </div>
       </section>
@@ -174,53 +200,57 @@ export default function HomePage() {
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <div className="inline-flex items-center glass px-4 py-2 rounded-full mb-6">
-            <TrendingUp className="w-4 h-4 text-primary-400 mr-2" />
-            <span className="text-sm font-semibold text-primary-300">Your Learning Journey</span>
+            <TrendingUp className={`w-4 h-4 text-primary-400 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+            <span className="text-sm font-semibold text-primary-300">{t('learningPath.badge')}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            <span className="gradient-text-simple">Structured Learning Path</span>
+            <span className="gradient-text-simple">{t('learningPath.title')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            From beginner to expert, we guide you every step of the way
+            {t('learningPath.subtitle')}
           </p>
         </div>
 
         <div className="space-y-6">
           <PathStep 
             number={1} 
-            title="Nextflow Basics" 
-            description="Understand dataflow programming, processes, channels, and workflow composition"
+            title={t('learningPath.basics.title')}
+            description={t('learningPath.basics.description')}
             icon={<Workflow className="w-6 h-6" />}
             color="primary"
-            duration="4 tutorials · 3.5 hours"
+            duration={t('learningPath.basics.duration')}
             href="/tutorials"
+            isRTL={isRTL}
           />
           <PathStep 
             number={2} 
-            title="Bioinformatics Workflows" 
-            description="Learn to build pipelines for RNA-seq, variant calling, and genomic analysis"
+            title={t('learningPath.bioinformatics.title')}
+            description={t('learningPath.bioinformatics.description')}
             icon={<Dna className="w-6 h-6" />}
             color="secondary"
-            duration="3 tutorials · 5 hours"
+            duration={t('learningPath.bioinformatics.duration')}
             href="/tutorials"
+            isRTL={isRTL}
           />
           <PathStep 
             number={3} 
-            title="Advanced Topics" 
-            description="Master containers, cloud deployment, optimization, and best practices"
+            title={t('learningPath.advanced.title')}
+            description={t('learningPath.advanced.description')}
             icon={<Microscope className="w-6 h-6" />}
             color="accent"
-            duration="3 tutorials · 5 hours"
+            duration={t('learningPath.advanced.duration')}
             href="/tutorials"
+            isRTL={isRTL}
           />
           <PathStep 
             number={4} 
-            title="Real-World Projects" 
-            description="Build complete production-ready pipelines with nf-core standards"
+            title={t('learningPath.projects.title')}
+            description={t('learningPath.projects.description')}
             icon={<Star className="w-6 h-6" />}
             color="primary"
-            duration="Coming soon"
+            duration={t('learningPath.projects.duration')}
             href="/tutorials"
+            isRTL={isRTL}
           />
         </div>
       </section>
@@ -231,15 +261,15 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-accent-500/10" />
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              <span className="gradient-text">Ready to Start?</span>
+              <span className="gradient-text">{t('cta.title')}</span>
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join thousands of bioinformaticians learning Nextflow. Start your journey today!
+              {t('cta.description')}
             </p>
             <Link href="/tutorials" className="btn-primary inline-flex items-center text-lg">
-              <Sparkles className="w-5 h-5 mr-2" />
-              <span>Begin Your Journey</span>
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <Sparkles className={`w-5 h-5 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+              <span>{t('cta.button')}</span>
+              <ArrowRight className={`w-5 h-5 ${isRTL ? 'mr-2' : 'ml-2'}`} />
             </Link>
           </div>
         </div>
@@ -248,17 +278,17 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="glass-strong border-t border-white/10 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-3 mb-6 md:mb-0">
+          <div className={`flex flex-col md:flex-row justify-between items-center ${isRTL ? 'md:flex-row-reverse' : ''}`}>
+            <div className={`flex items-center space-x-3 mb-6 md:mb-0 ${isRTL ? 'flex-row-reverse space-x-reverse' : ''}`}>
               <Logo size={40} animated={false} />
               <div>
                 <span className="text-lg font-display font-bold gradient-text block">Nextflow Academy</span>
-                <span className="text-xs text-gray-400">Master Bioinformatics Workflows</span>
+                <span className="text-xs text-gray-400">{t('footer.subtitle')}</span>
               </div>
             </div>
-            <div className="text-center md:text-right text-gray-400">
-              <p className="mb-2">Built with Next.js, React, TypeScript & Tailwind CSS</p>
-              <p className="text-sm">Learn Nextflow • Build Better Pipelines • Advance Science 🧬</p>
+            <div className={`text-center ${isRTL ? 'md:text-left' : 'md:text-right'} text-gray-400`}>
+              <p className="mb-2">{t('footer.credits')}</p>
+              <p className="text-sm">{t('footer.tagline')}</p>
             </div>
           </div>
         </div>
@@ -279,12 +309,13 @@ function StatCard({ number, label, icon }: { number: string; label: string; icon
   )
 }
 
-function FeatureCard({ icon, gradient, title, description, features }: { 
+function FeatureCard({ icon, gradient, title, description, features, isRTL }: { 
   icon: React.ReactNode; 
   gradient: string;
   title: string; 
   description: string;
   features: string[];
+  isRTL: boolean;
 }) {
   return (
     <div className="card-glow card group cursor-pointer">
@@ -295,8 +326,8 @@ function FeatureCard({ icon, gradient, title, description, features }: {
       <p className="text-gray-300 mb-6 leading-relaxed">{description}</p>
       <div className="space-y-2">
         {features.map((feature, index) => (
-          <div key={index} className="flex items-center text-sm text-gray-400">
-            <Check className="w-4 h-4 text-primary-400 mr-2 flex-shrink-0" />
+          <div key={index} className={`flex items-center text-sm text-gray-400 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <Check className={`w-4 h-4 text-primary-400 ${isRTL ? 'ml-2' : 'mr-2'} flex-shrink-0`} />
             <span>{feature}</span>
           </div>
         ))}
@@ -305,7 +336,7 @@ function FeatureCard({ icon, gradient, title, description, features }: {
   )
 }
 
-function PathStep({ number, title, description, icon, color, duration, href }: { 
+function PathStep({ number, title, description, icon, color, duration, href, isRTL }: { 
   number: number; 
   title: string; 
   description: string;
@@ -313,6 +344,7 @@ function PathStep({ number, title, description, icon, color, duration, href }: {
   color: 'primary' | 'secondary' | 'accent';
   duration: string;
   href: string;
+  isRTL: boolean;
 }) {
   const colorClasses = {
     primary: 'from-primary-500 to-primary-600 shadow-glow-sm',
@@ -323,24 +355,24 @@ function PathStep({ number, title, description, icon, color, duration, href }: {
   return (
     <Link href={href}>
       <div className="card-glow card group cursor-pointer hover:scale-[1.02] transition-all">
-        <div className="flex items-start space-x-6">
+        <div className={`flex items-start ${isRTL ? 'flex-row-reverse space-x-reverse' : ''} space-x-6`}>
           <div className={`w-16 h-16 bg-gradient-to-br ${colorClasses[color]} rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl font-bold text-white group-hover:scale-110 transition-transform`}>
             {number}
           </div>
           <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
+            <div className={`flex items-center gap-3 mb-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <div className="text-primary-400 group-hover:scale-110 transition-transform">
                 {icon}
               </div>
               <h3 className="text-2xl font-display font-semibold group-hover:gradient-text-simple transition-all">{title}</h3>
             </div>
             <p className="text-gray-300 mb-3 leading-relaxed">{description}</p>
-            <div className="flex items-center text-sm text-gray-400">
-              <TrendingUp className="w-4 h-4 mr-2" />
+            <div className={`flex items-center text-sm text-gray-400 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <TrendingUp className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
               <span>{duration}</span>
             </div>
           </div>
-          <div className="text-primary-400 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className={`text-primary-400 opacity-0 group-hover:opacity-100 transition-opacity ${isRTL ? 'scale-x-[-1]' : ''}`}>
             <ArrowRight className="w-6 h-6" />
           </div>
         </div>
