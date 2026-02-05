@@ -1,6 +1,6 @@
-# Nextflow Training Platform
+# BioNXA Learning Platform
 
-An interactive web-based training platform for learning Nextflow and bioinformatics workflow development.
+An interactive web-based training platform for bioinformatics, biotechnology, and AI-driven computational biology.
 
 ## 🚀 Features
 
@@ -13,25 +13,28 @@ An interactive web-based training platform for learning Nextflow and bioinformat
 
 ## 📚 Learning Paths
 
-### 1. Nextflow Basics
-- Introduction to Nextflow
-- Processes and Tasks
-- Channels and Data Flow
-- Channel Operators
+### 1. Bioinformatics Fundamentals
+- Introduction to Computational Biology
+- Data Processing Pipelines
+- Genomic Data Analysis
+- Workflow Automation
 
-### 2. Bioinformatics Workflows
-- Quality Control Pipelines
-- RNA-seq Analysis
-- Variant Calling Workflows
+### 2. Biotechnology Applications
+- Quality Control & Data Processing
+- RNA-seq & Gene Expression Analysis
+- Variant Calling & Genomic Analysis
+- Protein Structure Prediction
 
-### 3. Advanced Topics
-- Container Management (Docker, Singularity)
-- Cloud Deployment (AWS, Azure, GCP)
-- Performance Optimization
+### 3. AI & Machine Learning
+- Deep Learning for Genomics
+- Predictive Modeling in Biology
+- Cloud-based Bioinformatics (AWS, Azure, GCP)
+- High-Performance Computing
 
 ### 4. Real-World Projects
-- Production-ready pipeline development
-- nf-core standards and best practices
+- Production-ready workflow development
+- Industry standards and best practices
+- Research & Clinical Applications
 
 ## 🛠️ Tech Stack
 
@@ -126,10 +129,10 @@ Contributions are welcome! Please feel free to:
 
 ## 📖 Related Resources
 
-- [Nextflow Official Docs](https://nextflow.io/docs/latest/)
-- [nf-core](https://nf-co.re/) - Community pipelines
-- [Nextflow Patterns](https://nextflow-io.github.io/patterns/)
-- [Nextflow Community Forum](https://community.seqera.io)
+- [NCBI Resources](https://www.ncbi.nlm.nih.gov/)
+- [Bioconductor](https://www.bioconductor.org/) - Bioinformatics software
+- [Galaxy Project](https://galaxyproject.org/) - Workflow platform
+- [BioStars](https://www.biostars.org/) - Bioinformatics community
 
 ## 📄 License
 
@@ -137,8 +140,8 @@ This project is open source and available under the Apache 2.0 License.
 
 ## 🌟 Acknowledgments
 
-Built with inspiration from the amazing Nextflow community and the need for accessible bioinformatics training resources.
+Built to advance bioinformatics and biotechnology education in Saudi Arabia and the global scientific community.
 
 ---
 
-**Start your journey to mastering Nextflow and building amazing bioinformatics pipelines!** 🧬
+**Start your journey to mastering bioinformatics, biotechnology, and AI-driven computational biology!** 🧬🔬

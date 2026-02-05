@@ -49,7 +49,7 @@ export default function HomePage() {
                 <Logo size={48} animated={true} />
               </div>
               <div>
-                <span className="text-2xl font-display font-bold gradient-text block">Nextflow</span>
+                <span className="text-2xl font-display font-bold gradient-text block">BioNXA</span>
                 <span className="text-sm text-primary-300 font-semibold">{t('nav.academy')}</span>
               </div>
             </Link>
@@ -120,7 +120,7 @@ export default function HomePage() {
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
             {t.rich('hero.description', {
               scalable: (chunks) => <span className="text-primary-400 font-semibold">{chunks}</span>,
-              portable: (chunks) => <span className="text-secondary-400 font-semibold">{chunks}</span>,
+              intelligent: (chunks) => <span className="text-secondary-400 font-semibold">{chunks}</span>,
               reproducible: (chunks) => <span className="text-accent-400 font-semibold">{chunks}</span>,
             })}
           </p>
@@ -282,7 +282,7 @@ export default function HomePage() {
             <div className={`flex items-center space-x-3 mb-6 md:mb-0 ${isRTL ? 'flex-row-reverse space-x-reverse' : ''}`}>
               <Logo size={40} animated={false} />
               <div>
-                <span className="text-lg font-display font-bold gradient-text block">Nextflow Academy</span>
+                <span className="text-lg font-display font-bold gradient-text block">BioNXA Academy</span>
                 <span className="text-xs text-gray-400">{t('footer.subtitle')}</span>
               </div>
             </div>

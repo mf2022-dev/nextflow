@@ -4,16 +4,16 @@
     "tutorials": "Tutorials",
     "playground": "Playground",
     "resources": "Resources",
-    "academy": "Nextflow Academy"
+    "academy": "BioNXA Academy"
   },
   "hero": {
-    "welcome": "Welcome to the Future of Bioinformatics Learning",
-    "title1": "Master Nextflow",
-    "title2": "Build Amazing",
-    "title3": "Pipelines",
-    "description": "Learn to build {scalable}, {portable}, and {reproducible} bioinformatics workflows through interactive tutorials and hands-on practice",
+    "welcome": "Welcome to the Future of Bioinformatics & Biotechnology Learning",
+    "title1": "Master Bioinformatics",
+    "title2": "Build AI-Powered",
+    "title3": "Solutions",
+    "description": "Learn to build {scalable}, {intelligent}, and {reproducible} bioinformatics workflows and biotechnology solutions through interactive tutorials and hands-on practice",
     "scalable": "scalable",
-    "portable": "portable",
+    "intelligent": "AI-powered",
     "reproducible": "reproducible",
     "startLearning": "Start Learning Journey",
     "tryPlayground": "Try Interactive Playground"
@@ -26,17 +26,17 @@
   },
   "features": {
     "title": "Why Choose Us?",
-    "subtitle": "Everything you need to become a Nextflow expert",
+    "subtitle": "Everything you need to become a bioinformatics and biotechnology expert",
     "interactive": {
       "title": "Interactive Tutorials",
-      "description": "Step-by-step lessons covering Nextflow basics to advanced pipeline development with real-world bioinformatics examples",
+      "description": "Step-by-step lessons covering bioinformatics fundamentals to advanced AI-driven computational biology with real-world examples",
       "feature1": "Progressive Learning",
       "feature2": "Hands-on Examples",
       "feature3": "Real Workflows"
     },
     "playground": {
       "title": "Code Playground",
-      "description": "Practice writing Nextflow workflows in an interactive editor with instant feedback and validation",
+      "description": "Practice writing bioinformatics workflows and algorithms in an interactive editor with instant feedback and validation",
       "feature1": "Monaco Editor",
       "feature2": "Live Preview",
       "feature3": "Syntax Highlighting"
@@ -52,57 +52,57 @@
   "learningPath": {
     "badge": "Your Learning Journey",
     "title": "Structured Learning Path",
-    "subtitle": "From beginner to expert, we guide you every step of the way",
+    "subtitle": "From beginner to expert in bioinformatics, biotechnology, and AI",
     "basics": {
-      "title": "Nextflow Basics",
-      "description": "Understand dataflow programming, processes, channels, and workflow composition",
+      "title": "Bioinformatics Fundamentals",
+      "description": "Understand computational biology, data pipelines, genomic analysis, and workflow automation",
       "duration": "4 tutorials · 3.5 hours"
     },
     "bioinformatics": {
-      "title": "Bioinformatics Workflows",
-      "description": "Learn to build pipelines for RNA-seq, variant calling, and genomic analysis",
+      "title": "Biotechnology Applications",
+      "description": "Learn to build solutions for RNA-seq, variant calling, genomics, and protein analysis",
       "duration": "3 tutorials · 5 hours"
     },
     "advanced": {
-      "title": "Advanced Topics",
-      "description": "Master containers, cloud deployment, optimization, and best practices",
+      "title": "AI & Machine Learning",
+      "description": "Master deep learning for genomics, predictive modeling, cloud computing, and HPC",
       "duration": "3 tutorials · 5 hours"
     },
     "projects": {
       "title": "Real-World Projects",
-      "description": "Build complete production-ready pipelines with nf-core standards",
+      "description": "Build complete production-ready solutions with industry standards and clinical applications",
       "duration": "Coming soon"
     }
   },
   "cta": {
     "title": "Ready to Start?",
-    "description": "Join thousands of bioinformaticians learning Nextflow. Start your journey today!",
+    "description": "Join scientists and researchers advancing bioinformatics & biotechnology. Start your journey today!",
     "button": "Begin Your Journey"
   },
   "footer": {
-    "subtitle": "Master Bioinformatics Workflows",
+    "subtitle": "Master Bioinformatics & Biotechnology",
     "credits": "Built with Next.js, React, TypeScript & Tailwind CSS",
-    "tagline": "Learn Nextflow • Build Better Pipelines • Advance Science 🧬"
+    "tagline": "Learn Bioinformatics • Build AI Solutions • Advance Science 🧬"
   },
   "tutorials": {
     "title": "Learning Tutorials",
-    "subtitle": "Comprehensive courses to take you from beginner to expert in Nextflow and bioinformatics workflow development",
+    "subtitle": "Comprehensive courses to take you from beginner to expert in bioinformatics, biotechnology, and AI-driven computational biology",
     "beginner": "Beginner",
     "intermediate": "Intermediate",
     "advanced": "Advanced",
     "lessons": "lessons",
     "categories": {
       "basics": {
-        "title": "Nextflow Basics",
-        "description": "Get started with Nextflow fundamentals"
+        "title": "Bioinformatics Fundamentals",
+        "description": "Get started with computational biology"
       },
       "bioinformatics": {
-        "title": "Bioinformatics Workflows",
-        "description": "Build real-world genomics pipelines"
+        "title": "Biotechnology Applications",
+        "description": "Build real-world genomics solutions"
       },
       "advanced": {
-        "title": "Advanced Topics",
-        "description": "Master advanced Nextflow features"
+        "title": "AI & Machine Learning",
+        "description": "Master advanced AI features"
       }
     }
   },
@@ -112,7 +112,7 @@
     "run": "Run",
     "running": "Running...",
     "save": "Save",
-    "script": "Nextflow Script",
+    "script": "Workflow Script",
     "output": "Output",
     "runPrompt": "Click \"Run\" to execute your workflow",
     "tips": {
@@ -120,12 +120,12 @@
       "tip1": "This is a simulated environment for learning purposes",
       "tip2": "Try modifying the example workflows to see how they work",
       "tip3": "Check out the tutorials for detailed explanations",
-      "tip4": "For real execution, install Nextflow locally or use a cloud platform"
+      "tip4": "For real execution, use cloud platforms or local computing resources"
     }
   },
   "resources": {
     "title": "Learning Resources",
-    "subtitle": "Curated collection of documentation, tutorials, and community resources to help you master Nextflow",
+    "subtitle": "Curated collection of documentation, tutorials, and community resources to help you master bioinformatics & biotechnology",
     "documentation": "Documentation",
     "community": "Community",
     "videos": "Video Tutorials",

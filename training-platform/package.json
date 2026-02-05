@@ -1,7 +1,7 @@
 {
-  "name": "nextflow-training-platform",
+  "name": "bionxa-learning-platform",
   "version": "1.0.0",
-  "description": "Interactive web-based training platform for Nextflow and Bioinformatics",
+  "description": "BioNXA - Interactive learning platform for bioinformatics, biotechnology, and AI-driven computational biology",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
