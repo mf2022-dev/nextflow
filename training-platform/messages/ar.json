@@ -181,5 +181,41 @@
       "title": "إدارة الخوادم",
       "description": "العمل مع الخوادم البعيدة وعناقيد HPC وبيئات الحوسبة السحابية"
     }
+  },
+  "auth": {
+    "backToHome": "العودة للرئيسية",
+    "signIn": {
+      "title": "مرحباً بعودتك",
+      "subtitle": "سجل دخولك لمتابعة رحلتك التعليمية",
+      "button": "تسجيل الدخول",
+      "link": "تسجيل الدخول"
+    },
+    "signUp": {
+      "title": "إنشاء حساب",
+      "subtitle": "ابدأ رحلتك في المعلوماتية الحيوية اليوم",
+      "button": "إنشاء حساب",
+      "link": "إنشاء حساب",
+      "benefits": {
+        "title": "انضم إلى BioNXA واحصل على:",
+        "progress": "تتبع تقدمك وإنجازاتك",
+        "certificates": "احصل على شهادات عند الإكمال",
+        "ai": "مسارات تعليمية مخصصة مدعومة بالذكاء الاصطناعي",
+        "community": "وصول إلى مجتمع حصري"
+      }
+    },
+    "name": "الاسم الكامل",
+    "namePlaceholder": "أدخل اسمك",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "your@email.com",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "6 أحرف على الأقل",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "or": "أو",
+    "continueWithGoogle": "المتابعة مع Google",
+    "continueWithGithub": "المتابعة مع GitHub",
+    "haveAccount": "لديك حساب بالفعل؟",
+    "noAccount": "ليس لديك حساب؟",
+    "loading": "يرجى الانتظار...",
+    "signOut": "تسجيل الخروج"
   }
 }

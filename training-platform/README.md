@@ -11,6 +11,15 @@ An AI-powered interactive web-based training platform for bioinformatics, biotec
 - **Auto Error Detection**: AI automatically identifies and explains issues
 - **Smart Code Completion**: Intelligent suggestions as you code
 
+## 👤 User Authentication & Profiles
+
+- **Sign In / Sign Up**: Beautiful, bilingual authentication system
+- **Progress Tracking**: Save and track your learning progress
+- **Achievements**: Earn badges and certificates
+- **User Profiles**: Personalized dashboard and settings
+- **Social Sign-In**: Google and GitHub integration
+- **Secure Sessions**: Modern authentication with session management
+
 ## 🚀 Features
 
 - **Interactive Tutorials**: Step-by-step lessons covering Linux, bioinformatics, biotechnology, and AI topics

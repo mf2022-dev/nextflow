@@ -9,7 +9,7 @@ import {
   BookOpen, Code, Play, Award, Menu, X, Home, FileText, 
   Sparkles, Zap, Target, Users, TrendingUp, Check, 
   ArrowRight, Star, Dna, Microscope, Workflow, Brain, MessageSquare, Cpu, Lightbulb,
-  Terminal, Server, FileCode
+  Terminal, Server, FileCode, UserCircle, LogIn
 } from 'lucide-react'
 
 export default function HomePage() {
@@ -74,6 +74,10 @@ export default function HomePage() {
                 <span className="font-medium">{t('nav.resources')}</span>
               </Link>
               <LanguageSwitcher />
+              <Link href="/auth" className="btn-primary text-sm py-2 px-4">
+                <LogIn className="w-4 h-4 mr-2 inline" />
+                <span>{t('auth.signIn.button')}</span>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -97,6 +101,10 @@ export default function HomePage() {
               <Link href="/tutorials" className="block glass p-3 rounded-lg hover:glass-strong transition">{t('nav.tutorials')}</Link>
               <Link href="/playground" className="block glass p-3 rounded-lg hover:glass-strong transition">{t('nav.playground')}</Link>
               <Link href="/resources" className="block glass p-3 rounded-lg hover:glass-strong transition">{t('nav.resources')}</Link>
+              <Link href="/auth" className="block btn-primary text-center">
+                <LogIn className="w-4 h-4 mr-2 inline" />
+                {t('auth.signIn.button')}
+              </Link>
             </div>
           </div>
         )}

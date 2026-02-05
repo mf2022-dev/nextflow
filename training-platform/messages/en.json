@@ -181,5 +181,41 @@
       "title": "Server Management",
       "description": "Work with remote servers, HPC clusters, and cloud computing environments"
     }
+  },
+  "auth": {
+    "backToHome": "Back to Home",
+    "signIn": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to continue your learning journey",
+      "button": "Sign In",
+      "link": "Sign In"
+    },
+    "signUp": {
+      "title": "Create Account",
+      "subtitle": "Start your bioinformatics journey today",
+      "button": "Create Account",
+      "link": "Sign Up",
+      "benefits": {
+        "title": "Join BioNXA and unlock:",
+        "progress": "Track your progress and achievements",
+        "certificates": "Earn certificates upon completion",
+        "ai": "Personalized AI-powered learning paths",
+        "community": "Access to exclusive community"
+      }
+    },
+    "name": "Full Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "At least 6 characters",
+    "forgotPassword": "Forgot password?",
+    "or": "or",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithGithub": "Continue with GitHub",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "loading": "Please wait...",
+    "signOut": "Sign Out"
   }
 }
