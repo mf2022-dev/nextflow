@@ -489,7 +489,16 @@ export default function HomePage() {
             </div>
             <div className={`text-center ${isRTL ? 'md:text-left' : 'md:text-right'} text-gray-400`}>
               <p className="mb-2">{t('footer.credits')}</p>
-              <p className="text-sm">{t('footer.tagline')}</p>
+              <p className="text-sm mb-3">{t('footer.tagline')}</p>
+              <div className={`flex items-center justify-center ${isRTL ? 'md:justify-start' : 'md:justify-end'} space-x-4 text-sm ${isRTL ? 'space-x-reverse' : ''}`}>
+                <Link href="/privacy" className="text-gray-400 hover:text-primary-400 transition">
+                  {t('footer.privacy')}
+                </Link>
+                <span className="text-gray-600">•</span>
+                <Link href="/terms" className="text-gray-400 hover:text-primary-400 transition">
+                  {t('footer.terms')}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

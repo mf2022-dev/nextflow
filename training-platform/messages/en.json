@@ -87,7 +87,9 @@
   "footer": {
     "subtitle": "Master Bioinformatics & Biotechnology",
     "credits": "Built with Next.js, React, TypeScript & Tailwind CSS",
-    "tagline": "Learn Bioinformatics • Build AI Solutions • Advance Science 🧬"
+    "tagline": "Learn Bioinformatics • Build AI Solutions • Advance Science 🧬",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   },
   "tutorials": {
     "title": "Learning Tutorials",
