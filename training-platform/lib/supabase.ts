@@ -6,11 +6,19 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 
-if (!supabaseUrl || !supabaseAnonKey) {
+// Check if Supabase is configured
+export const isSupabaseConfigured = !!(supabaseUrl && supabaseAnonKey)
+
+if (!isSupabaseConfigured) {
   console.warn('⚠️ Supabase credentials not configured. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local')
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Create Supabase client only if credentials are available
+// Use dummy credentials for demo mode to prevent errors
+export const supabase = createClient(
+  supabaseUrl || 'https://demo.supabase.co',
+  supabaseAnonKey || 'demo-anon-key-placeholder'
+)
 
 // Database Types (will match Supabase schema)
 export interface UserProfile {
@@ -59,6 +67,13 @@ export interface Certificate {
 
 // Helper Functions for Auth
 export async function signUpWithEmail(email: string, password: string, fullName: string) {
+  if (!isSupabaseConfigured) {
+    return { 
+      data: null, 
+      error: { message: 'Supabase is not configured. Please set up your Supabase credentials in .env.local' } 
+    }
+  }
+  
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -72,6 +87,13 @@ export async function signUpWithEmail(email: string, password: string, fullName:
 }
 
 export async function signInWithEmail(email: string, password: string) {
+  if (!isSupabaseConfigured) {
+    return { 
+      data: null, 
+      error: { message: 'Supabase is not configured. Please set up your Supabase credentials in .env.local' } 
+    }
+  }
+  
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -80,6 +102,13 @@ export async function signInWithEmail(email: string, password: string) {
 }
 
 export async function signInWithOAuth(provider: 'google' | 'github' | 'apple') {
+  if (!isSupabaseConfigured) {
+    return { 
+      data: null, 
+      error: { message: 'Supabase is not configured. Please set up your Supabase credentials to enable OAuth sign-in.' } 
+    }
+  }
+  
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
