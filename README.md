@@ -1,66 +1,69 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/_static/nextflow-logo-bg-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="docs/_static/nextflow-logo-bg-light.png">
-  <img alt="Nextflow Logo" src="docs/_static/nextflow-logo-bg-light.png">
-</picture>
+# BioNXA: The AI-Powered Bioinformatics Learning Platform
 
-*"Dataflow variables are spectacularly expressive in concurrent programming"*
-<br>[Henri E. Bal , Jennifer G. Steiner , Andrew S. Tanenbaum](https://dl.acm.org/doi/abs/10.1145/72551.72552)
+![BioNXA Banner](https://i.imgur.com/your-banner-image.png)
 
-[![Nextflow CI](https://github.com/nextflow-io/nextflow/workflows/Nextflow%20CI/badge.svg)](https://github.com/nextflow-io/nextflow/actions/workflows/build.yml?query=branch%3Amaster+event%3Apush)
-[![Nextflow version](https://img.shields.io/github/release/nextflow-io/nextflow.svg?colorB=58bd9f&style=popout)](https://github.com/nextflow-io/nextflow/releases/latest)
-[![Nextflow Twitter](https://img.shields.io/twitter/url/https/nextflowio.svg?colorB=58bd9f&&label=%40nextflow&style=popout)](https://twitter.com/nextflowio)
-[![Nextflow Publication](https://img.shields.io/badge/Published-Nature%20Biotechnology-26af64.svg?colorB=58bd9f&style=popout)](https://www.nature.com/articles/nbt.3820)
-[![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?colorB=58bd9f&style=popout)](http://bioconda.github.io/recipes/nextflow/README.html)
-[![Nextflow license](https://img.shields.io/github/license/nextflow-io/nextflow.svg?colorB=58bd9f&style=popout)](https://github.com/nextflow-io/nextflow/blob/master/COPYING)
+**BioNXA** is a next-generation, AI-powered learning platform designed to help students, researchers, and professionals master bioinformatics and Nextflow workflow development. It combines a premium user experience with interactive coding, AI assistance, and a gamified learning journey.
 
-Nextflow is a workflow system for creating scalable, portable, and reproducible workflows. It is based on the dataflow programming model, which greatly simplifies the writing of parallel and distributed pipelines, allowing you to focus on the flow of data and computation. Nextflow can deploy workflows on a variety of execution platforms, including your local machine, HPC schedulers, AWS Batch, Azure Batch, Google Cloud Batch, and Kubernetes. Additionally, it supports many ways to manage your software dependencies, including Conda, Spack, Docker, Podman, Singularity, and more.
+**Live Demo:** [https://your-vercel-url.vercel.app](https://your-vercel-url.vercel.app)
 
-## Quick start
+## ✨ Key Features
 
-Install Nextflow with a single command:
+| Feature | Description |
+|---|---|
+| **Interactive Playground** | Write and execute real Nextflow pipelines directly in your browser with our Monaco-based editor. |
+| **AI Code Insights** | Get real-time feedback, optimization tips, and error detection from our AI assistant as you code. |
+| **Gamified Learning** | Earn XP, maintain daily streaks, and unlock badges to stay motivated on your learning journey. |
+| **Bilingual Support** | Full support for both English and Arabic with proper RTL layout. |
+| **Dark/Light Mode** | Choose the theme that works best for you. |
+| **3D Animations** | Interactive DNA Helix, Linux terminal, and AI neural network animations for an immersive experience. |
 
-```bash
-curl -fsSL https://get.nextflow.io | bash
-```
+## 🚀 Getting Started
 
-It creates the `nextflow` executable file in the current directory. You can then move it to a directory in your `$PATH` to run it from anywhere.
+### Prerequisites
 
-Nextflow can also be installed from Bioconda:
+- Node.js (v18.17.0 or later)
+- npm
 
-```bash
-conda install -c bioconda nextflow
-```
+### Installation
 
-## Documentation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mf2022-dev/bionxa.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd bionxa
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Create a `.env.local` file and add your Supabase credentials:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   ```
+5. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-The Nextflow documentation is available for the latest [stable](https://nextflow.io/docs/latest/) and [edge](https://nextflow.io/docs/edge/) releases.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-## Community
+## 🛠️ Tech Stack
 
-You can post questions and get help in the [Nextflow community forum](https://community.seqera.io) or the [Nextflow Slack](https://www.nextflow.io/slack-invite.html). Bugs and feature requests should be reported as [GitHub issues](https://github.com/nextflow-io/nextflow/issues/new/choose).
+- **Framework:** [Next.js 14](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **UI:** [Shadcn UI](https://ui.shadcn.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/), [Three.js](https://threejs.org/)
+- **Internationalization:** [next-intl](https://next-intl-docs.vercel.app/)
+- **Database & Auth:** [Supabase](https://supabase.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
-The Nextflow community is highly active with regular community meetings, events, a podcast and more. You can view much of this material on the [Nextflow](https://www.youtube.com/@Nextflow) and [nf-core](https://www.youtube.com/@nf-core) YouTube channels.
+## 🤝 Contributing
 
-The [nf-core](https://nf-co.re/) project is a community effort aggregating high quality Nextflow workflows which can be used by everyone.
+Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for more details.
 
-## Contributing
+## 📜 License
 
-Contributions are more than welcome. See the [CONTRIBUTING](CONTRIBUTING.md) file for details.
-
-## License
-
-Nextflow is released under the Apache 2.0 license. Nextflow is a [registered trademark](https://github.com/nextflow-io/trademark).
-
-## Citations
-
-If you use Nextflow in your work, please cite:
-
-P. Di Tommaso, et al. Nextflow enables reproducible computational workflows. Nature Biotechnology 35, 316–319 (2017) doi:[10.1038/nbt.3820](http://www.nature.com/nbt/journal/v35/n4/full/nbt.3820.html)
-
-## Credits
-
-Nextflow is built on two \*great* open-source software projects, <a href='http://groovy-lang.org' target='_blank'>Groovy</a>
-and <a href='http://www.gpars.org/' target='_blank'>GPars</a>.
-
-<a href='http://www.yourkit.com' target='_blank'>YourKit</a> is kindly supporting Nextflow with its fully-featured Java Profiler.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

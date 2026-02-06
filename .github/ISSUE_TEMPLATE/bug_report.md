@@ -1,31 +1,38 @@
 ---
-name: Bug report
-about: Report a bug to help us improve
+name: Bug Report
+about: Create a report to help us improve
+title: "[BUG] "
+labels: bug
+assignees: ''
+
 ---
 
-## Bug report 
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-(Please follow this template by replacing the text between parentheses with the requested information)
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-### Expected behavior and actual behavior
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-(Give a brief description of the expected behavior and actual behavior)
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
-### Steps to reproduce the problem
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser: [e.g. chrome, safari]
+ - Version: [e.g. 22]
 
-(Provide a test case that reproduces the problem either with a self-contained script or GitHub repository)
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser: [e.g. stock browser, safari]
+ - Version: [e.g. 22]
 
-### Program output 
-
-(Copy and paste the output produced by the failing execution. Please highlight it as a code block. Whenever possible upload the `.nextflow.log` file.)
-
-### Environment 
-
-* Nextflow version: [?] 
-* Java version: [?]
-* Operating system: [macOS, Linux, etc]
-* Bash version: (use the command `$SHELL --version`)
-
-### Additional context
-
-(Add any other context about the problem here)
+**Additional context**
+Add any other context about the problem here.
