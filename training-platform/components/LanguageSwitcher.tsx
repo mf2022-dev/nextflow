@@ -11,6 +11,7 @@ export default function LanguageSwitcher() {
 
   const switchLanguage = (newLocale: string) => {
     // Replace the locale in the pathname
+    if (!pathname) return;
     const segments = pathname.split('/');
     segments[1] = newLocale;
     const newPath = segments.join('/');

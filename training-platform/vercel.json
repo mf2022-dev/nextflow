@@ -1,9 +1,21 @@
 {
-  "buildCommand": "npm run build",
-  "framework": "nextjs",
-  "installCommand": "npm install",
-  "git": {
-    "deploymentEnabled": true
+  "version": 2,
+  "name": "bionxa",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://lmlkjcsyvbgglsuovmik.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtbGtqY3N5dmJnZ2xzdW92bWlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAzNzE2NDAsImV4cCI6MjA4NTk0NzY0MH0.MzmgBnumvJFsithR6pEMk2jPvYuiEhu53pb87HRCTEA"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_SUPABASE_URL": "https://lmlkjcsyvbgglsuovmik.supabase.co",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtbGtqY3N5dmJnZ2xzdW92bWlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAzNzE2NDAsImV4cCI6MjA4NTk0NzY0MH0.MzmgBnumvJFsithR6pEMk2jPvYuiEhu53pb87HRCTEA"
+    }
   },
   "regions": ["iad1"]
 }
