@@ -1,0 +1,24 @@
+========================================
+MLST Typing Results
+========================================
+Sample: demo_ecoli
+Scheme: Escherichia coli #1
+Date: 2026-02-11 06:53:02
+
+Sequence Type: ST131
+
+Allelic Profile:
+  adk(6) fumC(4) gyrB(14) icd(12) mdh(1) purA(19) recA(2)
+
+Clinical Significance:
+  ST131 is a globally distributed multidrug-resistant lineage
+  Associated with:
+    - Urinary tract infections (UTIs)
+    - Bloodstream infections
+    - Extended-spectrum β-lactamase (ESBL) production
+    - Fluoroquinolone resistance
+
+References:
+  - Petty et al., PNAS 2014
+  - Nicolas-Chanoine et al., Clin Microbiol Infect 2014
+  - Aljohani et al., Int J Mol Sci 2023

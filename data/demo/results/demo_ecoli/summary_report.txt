@@ -1,0 +1,150 @@
+════════════════════════════════════════════════════════════════
+       BioNXA GENOMIC ANALYSIS REPORT
+════════════════════════════════════════════════════════════════
+
+Sample ID: demo_ecoli
+Analysis Date: 2026-02-11 06:53:03
+Pipeline Version: 1.0
+
+Based on methodology from:
+  Aljohani RH, et al. Genomic Characterization of Uropathogenic 
+  Escherichia coli Isolates from Tertiary Hospitals in Riyadh, 
+  Saudi Arabia. Int J Mol Sci. 2023;24(8):7582.
+
+════════════════════════════════════════════════════════════════
+ANALYSIS SUMMARY
+════════════════════════════════════════════════════════════════
+
+✓ Quality Control:          PASS
+✓ Genome Assembly:           COMPLETE
+✓ Genome Annotation:         4,986 genes predicted
+✓ MLST Typing:               
+[0;32m[2026-02-11 06:53:02][0m STEP 4: Multilocus Sequence Typing (MLST)
+[0;34m[INFO][0m Using Abricate v0.9.8 with mlst database
+[0;34m[INFO][0m ✓ MLST analysis completed
+[0;34m[INFO][0m   Sequence Type: ST131
+ST131
+✓ AMR Gene Detection:        Multidrug-resistant
+✓ Virulence Factors:         UPEC pathotype confirmed
+✓ Serotyping:                Complete
+✓ Phylogroup:                B2 (ExPEC)
+
+════════════════════════════════════════════════════════════════
+KEY FINDINGS
+════════════════════════════════════════════════════════════════
+
+1. BACTERIAL IDENTIFICATION
+   Species: Escherichia coli
+   Pathotype: Uropathogenic E. coli (UPEC)
+   Sequence Type: 
+[0;32m[2026-02-11 06:53:02][0m STEP 4: Multilocus Sequence Typing (MLST)
+[0;34m[INFO][0m Using Abricate v0.9.8 with mlst database
+[0;34m[INFO][0m ✓ MLST analysis completed
+[0;34m[INFO][0m   Sequence Type: ST131
+ST131
+   Phylogenetic Group: B2
+
+2. ANTIMICROBIAL RESISTANCE
+   Profile: Multidrug-resistant (MDR)
+   ESBL Producer: YES (blaCTX-M-15)
+   Fluoroquinolone Resistant: YES (QRDR mutations)
+   
+   Resistant to:
+     • β-lactams (including 3rd-gen cephalosporins)
+     • Fluoroquinolones (ciprofloxacin)
+     • Aminoglycosides (gentamicin)
+     • Trimethoprim-sulfamethoxazole
+     • Tetracyclines
+
+3. VIRULENCE PROFILE
+   Classification: High virulence potential
+   Key factors: Type 1 fimbriae, hemolysin, siderophores
+   Biofilm formation: Positive
+   Capsule production: Positive
+
+4. CLINICAL SIGNIFICANCE
+   Risk Level: HIGH
+   Public Health Concern: PRIORITY PATHOGEN
+   
+   This isolate represents a globally disseminated multidrug-
+   resistant lineage of UPEC. Enhanced surveillance and strict
+   infection control measures are recommended.
+
+════════════════════════════════════════════════════════════════
+TREATMENT RECOMMENDATIONS
+════════════════════════════════════════════════════════════════
+
+Based on genotypic resistance profile:
+
+EFFECTIVE OPTIONS:
+  ✓ Carbapenems (Imipenem, Meropenem)
+  ✓ Nitrofurantoin (for uncomplicated UTI)
+  ✓ Fosfomycin
+  ✓ Tigecycline (reserve)
+
+INEFFECTIVE OPTIONS (Predicted Resistance):
+  ✗ Ampicillin
+  ✗ Cephalosporins (including 3rd generation)
+  ✗ Ciprofloxacin
+  ✗ Trimethoprim-sulfamethoxazole
+  ✗ Tetracyclines
+
+CLINICAL NOTES:
+  • Antimicrobial stewardship is critical
+  • Consider infectious disease consultation
+  • Monitor for treatment failure
+  • Implement strict infection control measures
+
+════════════════════════════════════════════════════════════════
+EPIDEMIOLOGICAL CONTEXT
+════════════════════════════════════════════════════════════════
+
+According to Aljohani et al. (2023) study in Riyadh, Saudi Arabia:
+
+  • ST131 prevalence: 39.6% of ESBL-producing UPEC
+  • ST1193 prevalence: 12.5% (emerging lineage - FIRST REPORT)
+  • Overall ESBL rate: 33.9%
+  • Fluoroquinolone resistance: 77.1% of ESBL isolates
+  
+  Global Context:
+    - ST131 is a pandemic clone
+    - Disseminated worldwide (Asia, Europe, Americas, Middle East)
+    - Major cause of community and hospital-acquired UTIs
+    - High transmission potential
+
+════════════════════════════════════════════════════════════════
+DATA AVAILABILITY
+════════════════════════════════════════════════════════════════
+
+NCBI BioProject: PRJNA897916
+SRA Accessions: SRR22179269-SRR22179316
+
+Research Data:
+  • 165 UPEC isolates from two Riyadh tertiary hospitals
+  • 48 whole genome sequences (ESBL producers)
+  • Study period: May 2019 - September 2020
+
+════════════════════════════════════════════════════════════════
+OUTPUT FILES
+════════════════════════════════════════════════════════════════
+
+All analysis results are available in: ./data/demo/results/demo_ecoli
+
+  qc/                Quality control reports
+  assembly/          Genome assembly files
+  annotation/        Genome annotation results
+  mlst/              MLST typing results
+  amr/               AMR gene detection
+  virulence/         Virulence factor analysis
+  serotype/          Serotyping results
+  phylogroup/        Phylogenetic classification
+
+════════════════════════════════════════════════════════════════
+
+Analysis completed successfully!
+
+For questions or support:
+  BioNXA Platform: https://bionxa.com
+  Documentation: /en/tutorials/genomic-characterization-upec
+
+════════════════════════════════════════════════════════════════

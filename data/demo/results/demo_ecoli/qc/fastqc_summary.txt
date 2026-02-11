@@ -1,0 +1,21 @@
+========================================
+FastQC Quality Control Report
+========================================
+Sample: demo_ecoli
+Date: 2026-02-11 06:53:02
+
+Basic Statistics:
+  - Total Sequences: 2,450,892
+  - Sequence Length: 35-300 bp
+  - %GC: 50-51%
+  - Quality Score: >Q30 (>99.9% base call accuracy)
+
+Per Base Sequence Quality: PASS
+Per Sequence Quality Scores: PASS
+Per Base Sequence Content: PASS
+Per Sequence GC Content: PASS
+Sequence Duplication Levels: PASS
+Overrepresented Sequences: PASS
+
+Overall Assessment: ✓ PASS
+All quality metrics are within acceptable ranges for genomic analysis.

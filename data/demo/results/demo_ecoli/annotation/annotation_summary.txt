@@ -1,0 +1,30 @@
+========================================
+Genome Annotation Summary
+========================================
+Sample: demo_ecoli
+Annotator: Prokka v1.14.6
+Date: 2026-02-11 06:53:02
+
+Annotation Statistics:
+  - Predicted CDSs: 4,872
+  - rRNA genes: 22
+  - tRNA genes: 86
+  - tmRNA genes: 1
+  - Misc RNA: 5
+  - Total genes: 4,986
+
+Functional Classification:
+  - Hypothetical proteins: 1,245 (25.6%)
+  - Known function: 3,627 (74.4%)
+  
+Key Gene Categories:
+  - Metabolism: 1,523 genes
+  - Transport: 645 genes
+  - Cell wall biosynthesis: 234 genes
+  - DNA replication/repair: 187 genes
+  - Transcription: 298 genes
+
+Pathogenicity Islands:
+  - Identified: 3 regions
+  - Virulence factors: Present
+  - Resistance determinants: Present

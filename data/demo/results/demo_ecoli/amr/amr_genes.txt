@@ -1,0 +1,23 @@
+========================================
+AMR Gene Detection Results
+========================================
+Sample ST: 
+[0;32m[2026-02-11 06:53:02][0m STEP 4: Multilocus Sequence Typing (MLST)
+[0;34m[INFO][0m Using Abricate v0.9.8 with mlst database
+[0;34m[INFO][0m ✓ MLST analysis completed
+[0;34m[INFO][0m   Sequence Type: ST131
+ST131
+Database: NCBI AMRFinderPlus
+Date: 2026-02-11 06:53:03
+
+DETECTED RESISTANCE GENES:
+
+β-Lactam Resistance:
+  ✓ blaCTX-M-15   [100% identity, 100% coverage]
+  ✓ blaEC-5       [100% identity, 100% coverage]
+
+Fluoroquinolone Resistance:
+  ✓ gyrA S83L
+  ✓ parC S80I
+
+Multidrug-resistant (MDR): YES

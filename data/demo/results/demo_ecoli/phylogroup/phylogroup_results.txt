@@ -1,0 +1,43 @@
+========================================
+Phylogenetic Group Classification
+========================================
+Sample ST: 
+[0;32m[2026-02-11 06:53:02][0m STEP 4: Multilocus Sequence Typing (MLST)
+[0;34m[INFO][0m Using Abricate v0.9.8 with mlst database
+[0;34m[INFO][0m ✓ MLST analysis completed
+[0;34m[INFO][0m   Sequence Type: ST131
+ST131
+Method: Clermont Typing
+Date: 2026-02-11 06:53:03
+
+Phylogenetic Group: B2
+
+Clermont Typing Markers:
+  chuA: +
+  yjaA: +
+  TspE4.C2: -
+  arpA: +
+
+========================================
+PHYLOGROUP CHARACTERISTICS
+========================================
+
+Group B2:
+  • ExPEC (Extraintestinal Pathogenic E. coli)
+  • High virulence potential
+  • Associated with:
+      - Urinary tract infections (UTIs)
+      - Bloodstream infections (BSI)
+      - Neonatal meningitis
+  • Frequent carriage of virulence factors
+  • Often multidrug-resistant
+
+Clinical Context:
+  Phylogroup B2 strains represent the majority of:
+    - ESBL-producing UPEC isolates
+    - Extraintestinal infections
+    - Healthcare-associated infections
+    
+  In Aljohani et al. (2023) study:
+    - 62.5% of ESBL isolates belonged to phylogroup B2
+    - Strongly associated with ST131, ST1193, and ST73

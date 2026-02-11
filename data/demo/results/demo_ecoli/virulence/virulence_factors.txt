@@ -1,0 +1,61 @@
+========================================
+Virulence Factor Detection Results
+========================================
+Sample ST: 
+[0;32m[2026-02-11 06:53:02][0m STEP 4: Multilocus Sequence Typing (MLST)
+[0;34m[INFO][0m Using Abricate v0.9.8 with mlst database
+[0;34m[INFO][0m ✓ MLST analysis completed
+[0;34m[INFO][0m   Sequence Type: ST131
+ST131
+Database: Virulence Factor Database (VFDB)
+Date: 2026-02-11 06:53:03
+
+DETECTED VIRULENCE FACTORS:
+
+Adhesins (100%):
+  ✓ fimA-I        Type 1 fimbriae (adhesion to uroepithelial cells)
+  ✓ fdeC          Factor adherence E. coli
+  ✓ csgG          Curli fibres (biofilm formation)
+  ✓ ecpA-E        E. coli common pilus
+
+Iron Acquisition Systems (100%):
+  ✓ entABCDEF     Enterobactin siderophore system
+  ✓ fepABCDG      Ferric enterobactin transport
+  ✓ fyuA          Yersiniabactin receptor
+  ✓ irp1-2        Yersiniabactin biosynthesis
+  ✓ iucABCD       Aerobactin synthesis
+  ✓ chuASTUVWXY   Heme uptake system
+
+Toxins:
+  ✓ hlyA          α-hemolysin (cytotoxic to host cells)
+  ✓ vat           Vacuolating autotransporter toxin
+  ✓ senB          Enterotoxin
+
+Protectins:
+  ✓ ompA          Outer membrane protein A
+  ✓ kpsT          Capsule polysaccharide (K1)
+  ✓ traT          Serum resistance protein
+
+Invasins:
+  ✓ ibeA          Invasion of brain endothelium
+
+========================================
+PATHOGENICITY ASSESSMENT
+========================================
+
+Uropathogenic E. coli (UPEC) Profile: ✓ CONFIRMED
+
+Key Pathogenicity Features:
+  • Strong adherence capability
+  • Enhanced iron acquisition (multiple siderophores)
+  • Toxin production (hemolysin, VAT)
+  • Immune evasion (capsule, serum resistance)
+  • Biofilm formation
+
+Clinical Implications:
+  High virulence potential suitable for:
+    - Urinary tract colonization
+    - Tissue invasion
+    - Immune system evasion
+    - Chronic/recurrent infections
+    - Potential for bloodstream dissemination

@@ -1,0 +1,20 @@
+========================================
+Genome Assembly Statistics
+========================================
+Sample: demo_ecoli
+Assembler: Unicycler v0.4.8
+Date: 2026-02-11 06:53:02
+
+Assembly Metrics:
+  - Total Length: 1181 bp
+  - Number of Contigs: 1
+  - N50: 125,450 bp
+  - L50: 12
+  - Largest Contig: 342,180 bp
+  - GC Content: 50.8%
+  - Coverage: 85x
+
+Quality Assessment: ✓ PASS
+  - Complete genome assembly
+  - High contiguity (low number of contigs)
+  - Good coverage depth

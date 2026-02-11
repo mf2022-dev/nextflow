@@ -1,0 +1,45 @@
+========================================
+Serotyping Results
+========================================
+Sample ST: 
+[0;32m[2026-02-11 06:53:02][0m STEP 4: Multilocus Sequence Typing (MLST)
+[0;34m[INFO][0m Using Abricate v0.9.8 with mlst database
+[0;34m[INFO][0m ✓ MLST analysis completed
+[0;34m[INFO][0m   Sequence Type: ST131
+ST131
+Tools: SerotypeFinder v1.0, FimTyper v1.0
+Date: 2026-02-11 06:53:03
+
+O-antigen: O25
+  Identity: 100%
+  Coverage: 100%
+
+H-antigen: H4
+  Identity: 100%
+  Coverage: 100%
+
+Complete Serotype: O25:H4
+
+FimH Type: fimH30
+  Identity: 100%
+  Coverage: 100%
+
+========================================
+CLINICAL SIGNIFICANCE
+========================================
+
+Serotype O25:H4 + fimH30:
+  • Associated with pandemic 
+[0;32m[2026-02-11 06:53:02][0m STEP 4: Multilocus Sequence Typing (MLST)
+[0;34m[INFO][0m Using Abricate v0.9.8 with mlst database
+[0;34m[INFO][0m ✓ MLST analysis completed
+[0;34m[INFO][0m   Sequence Type: ST131
+ST131 clone
+  • Enhanced uroepithelial adherence
+  • Frequently isolated from UTIs worldwide
+  • Correlated with extraintestinal pathogenic E. coli (ExPEC)
+
+Literature References:
+  - Commonly reported in clinical UTI isolates
+  - Associated with multidrug resistance
+  - Part of global epidemiological surveillance targets
