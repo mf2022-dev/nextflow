@@ -1,4 +1,5 @@
 import { Tutorial } from '@/lib/types/tutorial';
+import { genomicCharacterizationUPEC } from './genomic-upec';
 
 export const introToBioinformatics: Tutorial = {
   id: 'intro-to-bioinformatics',
@@ -374,9 +375,10 @@ Let's check what you've learned!`,
   updatedAt: '2026-02-07T00:00:00Z'
 };
 
-// Export all tutorials (more to come)
+// Export all tutorials
 export const tutorials = [
-  introToBioinformatics
+  introToBioinformatics,
+  genomicCharacterizationUPEC
 ];
 
 // Helper to get tutorial by slug
