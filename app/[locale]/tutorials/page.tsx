@@ -1,154 +1,257 @@
-'use client'
+'use client';
 
-import { useLocale, useTranslations } from 'next-intl'
-import { Link } from '@/i18n/routing'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import ParticlesBackground from '@/components/animations/ParticlesBackground'
-import ScrollReveal from '@/components/ui/ScrollReveal'
-import { BookOpen, ChevronRight, CheckCircle, Circle, Code, Terminal, Dna, Brain, Workflow, Microscope } from 'lucide-react'
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  BookOpen, 
+  Clock, 
+  Award, 
+  Target, 
+  TrendingUp,
+  Search,
+  Filter,
+  ChevronRight,
+  Lock,
+  CheckCircle2
+} from 'lucide-react';
+import Link from 'next/link';
+import { tutorials } from '@/lib/tutorials';
+import { UserProfileUtils } from '@/lib/userProfile';
+import type { Tutorial } from '@/lib/types/tutorial';
 
-interface Tutorial {
-  id: string
-  title: string
-  description: string
-  duration: string
-  level: 'beginner' | 'intermediate' | 'advanced'
-  completed: boolean
-  lessons: number
-}
+const difficultyColors = {
+  beginner: 'from-green-500 to-emerald-600',
+  intermediate: 'from-blue-500 to-cyan-600',
+  advanced: 'from-purple-500 to-pink-600',
+  expert: 'from-red-500 to-orange-600'
+};
 
-const tutorialCategories = {
-  basics: {
-    title: 'Nextflow Basics',
-    titleAr: 'أساسيات Nextflow',
-    icon: <Workflow className="w-5 h-5" />,
-    color: 'var(--a1)',
-    description: 'Get started with Nextflow fundamentals',
-    descriptionAr: 'ابدأ بأساسيات Nextflow',
-    tutorials: [
-      { id: 'intro', title: 'Introduction to Nextflow', titleAr: 'مقدمة في Nextflow', description: 'Learn what Nextflow is and why it\'s essential for modern bioinformatics', descriptionAr: 'تعرف على Nextflow ولماذا هو ضروري للمعلوماتية الحيوية', duration: '30 min', level: 'beginner' as const, completed: false, lessons: 5 },
-      { id: 'processes', title: 'Processes and Tasks', titleAr: 'العمليات والمهام', description: 'Understand how to define and execute computational tasks', descriptionAr: 'تعلم كيفية تعريف وتنفيذ المهام الحسابية', duration: '45 min', level: 'beginner' as const, completed: false, lessons: 6 },
-      { id: 'channels', title: 'Channels and Data Flow', titleAr: 'القنوات وتدفق البيانات', description: 'Master dataflow programming with channels', descriptionAr: 'أتقن برمجة تدفق البيانات باستخدام القنوات', duration: '1 hour', level: 'beginner' as const, completed: false, lessons: 7 },
-      { id: 'operators', title: 'Channel Operators', titleAr: 'مشغلات القنوات', description: 'Transform and manipulate data using powerful operators', descriptionAr: 'حوّل البيانات ومعالجتها باستخدام المشغلات', duration: '1 hour', level: 'intermediate' as const, completed: false, lessons: 8 },
-    ]
-  },
-  bioinformatics: {
-    title: 'Bioinformatics Workflows',
-    titleAr: 'سير عمل المعلوماتية الحيوية',
-    icon: <Dna className="w-5 h-5" />,
-    color: 'var(--a2)',
-    description: 'Build real-world genomics pipelines',
-    descriptionAr: 'ابنِ خطوط أنابيب جينومية حقيقية',
-    tutorials: [
-      { id: 'qc', title: 'Quality Control Pipeline', titleAr: 'خط أنابيب مراقبة الجودة', description: 'Build a FastQC-based quality control workflow', descriptionAr: 'ابنِ سير عمل مراقبة الجودة باستخدام FastQC', duration: '1 hour', level: 'intermediate' as const, completed: false, lessons: 6 },
-      { id: 'rnaseq', title: 'RNA-seq Analysis', titleAr: 'تحليل RNA-seq', description: 'Create a complete RNA-seq quantification pipeline', descriptionAr: 'أنشئ خط أنابيب كامل لتحليل RNA-seq', duration: '2 hours', level: 'intermediate' as const, completed: false, lessons: 10 },
-      { id: 'variant', title: 'Variant Calling', titleAr: 'استدعاء المتغيرات', description: 'Develop a GATK-based variant calling workflow', descriptionAr: 'طوّر سير عمل استدعاء المتغيرات باستخدام GATK', duration: '2 hours', level: 'advanced' as const, completed: false, lessons: 12 },
-    ]
-  },
-  advanced: {
-    title: 'Advanced Topics',
-    titleAr: 'مواضيع متقدمة',
-    icon: <Brain className="w-5 h-5" />,
-    color: 'var(--a3)',
-    description: 'Master advanced Nextflow features',
-    descriptionAr: 'أتقن ميزات Nextflow المتقدمة',
-    tutorials: [
-      { id: 'containers', title: 'Containers and Conda', titleAr: 'الحاويات و Conda', description: 'Manage software dependencies with containers and Conda', descriptionAr: 'أدِر تبعيات البرمجيات باستخدام الحاويات و Conda', duration: '1.5 hours', level: 'advanced' as const, completed: false, lessons: 8 },
-      { id: 'cloud', title: 'Cloud Deployment', titleAr: 'النشر السحابي', description: 'Deploy workflows on AWS, Azure, and Google Cloud', descriptionAr: 'انشر سير العمل على AWS و Azure و Google Cloud', duration: '2 hours', level: 'advanced' as const, completed: false, lessons: 9 },
-      { id: 'optimization', title: 'Performance Optimization', titleAr: 'تحسين الأداء', description: 'Optimize workflows for speed and resource efficiency', descriptionAr: 'حسّن سير العمل للسرعة وكفاءة الموارد', duration: '1.5 hours', level: 'advanced' as const, completed: false, lessons: 7 },
-    ]
-  }
-}
+const difficultyLabels = {
+  beginner: 'Beginner',
+  intermediate: 'Intermediate',
+  advanced: 'Advanced',
+  expert: 'Expert'
+};
 
 export default function TutorialsPage() {
-  const locale = useLocale()
-  const t = useTranslations()
-  const isRTL = locale === 'ar'
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [userProfile, setUserProfile] = useState<any>(null);
+
+  useEffect(() => {
+    setUserProfile(UserProfileUtils.getProfile());
+  }, []);
+
+  const categories = Array.from(new Set(tutorials.map(t => t.category)));
+
+  const filteredTutorials = tutorials.filter(tutorial => {
+    const matchesSearch = tutorial.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         tutorial.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         tutorial.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+    
+    const matchesDifficulty = selectedDifficulty === 'all' || tutorial.difficulty === selectedDifficulty;
+    const matchesCategory = selectedCategory === 'all' || tutorial.category === selectedCategory;
+
+    return matchesSearch && matchesDifficulty && matchesCategory;
+  });
+
+  const isTutorialCompleted = (tutorialId: string) => {
+    return userProfile?.progress?.completedTutorials?.includes(tutorialId) || false;
+  };
+
+  const getTutorialProgress = (tutorialId: string) => {
+    // In a real app, this would come from a progress tracking system
+    return isTutorialCompleted(tutorialId) ? 100 : 0;
+  };
 
   return (
-    <div className="min-h-screen relative">
-      <ParticlesBackground />
-      <Navbar />
-
-      <div className="max-w-6xl mx-auto px-6 pt-28 pb-12">
-        <ScrollReveal>
-          <div className="text-center mb-12">
-            <div className="section-tag mb-4 mx-auto" style={{ color: 'var(--a1)' }}>
-              <BookOpen className="w-3 h-3 mr-1" />
-              {isRTL ? 'الدورات التعليمية' : 'Learning Tutorials'}
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950">
+      {/* Header */}
+      <div className="bg-slate-900/50 backdrop-blur-sm border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-8 py-12">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h1 className="text-4xl font-bold text-white mb-2">
+                Learning Tutorials
+              </h1>
+              <p className="text-gray-400 text-lg">
+                Master bioinformatics with hands-on interactive tutorials
+              </p>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--t1)' }}>
-              {isRTL ? 'ابدأ رحلة التعلم' : 'Start Your Learning Journey'}
-            </h1>
-            <p className="text-muted text-lg max-w-2xl mx-auto">
-              {isRTL
-                ? 'دورات شاملة تأخذك من المبتدئ إلى الخبير في Nextflow وتطوير سير عمل المعلوماتية الحيوية'
-                : 'Comprehensive courses to take you from beginner to expert in Nextflow and bioinformatics workflow development'}
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <div className="space-y-12">
-          {Object.entries(tutorialCategories).map(([key, category], catIdx) => (
-            <ScrollReveal key={key} delay={catIdx * 100}>
-              <div>
-                <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <div className="icon-box" style={{ background: `${category.color}15`, border: `1px solid ${category.color}25`, color: category.color }}>
-                    {category.icon}
+            
+            {userProfile && (
+              <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-2xl p-6">
+                <div className="flex items-center gap-4">
+                  <div className="text-center">
+                    <p className="text-gray-400 text-sm mb-1">Total XP</p>
+                    <p className="text-3xl font-bold text-yellow-400">{userProfile.progress.xp}</p>
                   </div>
-                  <div>
-                    <h2 className="text-2xl font-bold" style={{ color: 'var(--t1)' }}>
-                      {isRTL ? category.titleAr : category.title}
-                    </h2>
-                    <p className="text-muted text-sm">{isRTL ? category.descriptionAr : category.description}</p>
+                  <div className="w-px h-12 bg-white/20" />
+                  <div className="text-center">
+                    <p className="text-gray-400 text-sm mb-1">Completed</p>
+                    <p className="text-3xl font-bold text-green-400">
+                      {userProfile.progress.completedTutorials?.length || 0}
+                    </p>
                   </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {category.tutorials.map((tutorial: any) => (
-                    <TutorialCard key={tutorial.id} tutorial={tutorial} category={key} isRTL={isRTL} locale={locale} />
-                  ))}
+                  <div className="w-px h-12 bg-white/20" />
+                  <div className="text-center">
+                    <p className="text-gray-400 text-sm mb-1">Streak</p>
+                    <p className="text-3xl font-bold text-orange-400">{userProfile.progress.streak}</p>
+                  </div>
                 </div>
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-
-      <Footer />
-    </div>
-  )
-}
-
-function TutorialCard({ tutorial, category, isRTL, locale }: { tutorial: any; category: string; isRTL: boolean; locale: string }) {
-  return (
-    <Link href={`/tutorials/${category}/${tutorial.id}` as any}>
-      <div className="card-glass group cursor-pointer h-full">
-        <div className={`flex items-start gap-3 mb-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-          {tutorial.completed ? (
-            <CheckCircle className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--a4)' }} />
-          ) : (
-            <Circle className="w-5 h-5 text-subtle flex-shrink-0" />
-          )}
-          <h3 className="font-semibold group-hover:gradient-text-simple transition-all" style={{ color: 'var(--t1)' }}>
-            {locale === 'ar' ? tutorial.titleAr : tutorial.title}
-          </h3>
-        </div>
-
-        <p className="text-muted text-sm leading-relaxed mb-4">
-          {locale === 'ar' ? tutorial.descriptionAr : tutorial.description}
-        </p>
-
-        <div className={`flex items-center justify-between text-xs ${isRTL ? 'flex-row-reverse' : ''}`}>
-          <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-            <span className={`badge badge-${tutorial.level}`}>
-              {tutorial.level}
-            </span>
-            <span className="text-subtle">{tutorial.lessons} {locale === 'ar' ? 'درس' : 'lessons'}</span>
+            )}
           </div>
-          <span className="text-subtle">{tutorial.duration}</span>
+
+          {/* Filters */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            {/* Search */}
+            <div className="flex-1 relative">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search tutorials..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {/* Difficulty Filter */}
+            <select
+              value={selectedDifficulty}
+              onChange={(e) => setSelectedDifficulty(e.target.value)}
+              className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="all">All Levels</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="expert">Expert</option>
+            </select>
+
+            {/* Category Filter */}
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="all">All Categories</option>
+              {categories.map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
-    </Link>
-  )
+
+      {/* Tutorial Grid */}
+      <div className="max-w-7xl mx-auto px-8 py-12">
+        {filteredTutorials.length === 0 ? (
+          <div className="text-center py-20">
+            <BookOpen className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+            <h3 className="text-2xl font-semibold text-gray-400 mb-2">No tutorials found</h3>
+            <p className="text-gray-500">Try adjusting your filters or search query</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredTutorials.map((tutorial, index) => {
+              const isCompleted = isTutorialCompleted(tutorial.id);
+              const progress = getTutorialProgress(tutorial.id);
+
+              return (
+                <motion.div
+                  key={tutorial.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link href={`/en/tutorials/${tutorial.slug}`}>
+                    <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all h-full cursor-pointer">
+                      {/* Completed Badge */}
+                      {isCompleted && (
+                        <div className="absolute top-4 right-4">
+                          <CheckCircle2 className="w-6 h-6 text-green-400" />
+                        </div>
+                      )}
+
+                      {/* Difficulty Badge */}
+                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${difficultyColors[tutorial.difficulty]} mb-4`}>
+                        {difficultyLabels[tutorial.difficulty]}
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        {tutorial.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                        {tutorial.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {tutorial.tags.slice(0, 3).map(tag => (
+                          <span key={tag} className="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">
+                            {tag}
+                          </span>
+                        ))}
+                        {tutorial.tags.length > 3 && (
+                          <span className="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">
+                            +{tutorial.tags.length - 3}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Stats */}
+                      <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{tutorial.duration} min</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Award className="w-4 h-4 text-yellow-400" />
+                          <span className="text-yellow-400 font-semibold">{tutorial.xpReward} XP</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Target className="w-4 h-4" />
+                          <span>{tutorial.sections.length} sections</span>
+                        </div>
+                      </div>
+
+                      {/* Progress Bar */}
+                      {progress > 0 && (
+                        <div className="mb-4">
+                          <div className="flex items-center justify-between text-xs text-gray-400 mb-1">
+                            <span>Progress</span>
+                            <span>{progress}%</span>
+                          </div>
+                          <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-gradient-to-r from-blue-500 to-purple-600"
+                              style={{ width: `${progress}%` }}
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* CTA */}
+                      <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span className="text-blue-400 font-semibold group-hover:text-blue-300 transition-colors">
+                          {isCompleted ? 'Review' : progress > 0 ? 'Continue' : 'Start Learning'}
+                        </span>
+                        <ChevronRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
