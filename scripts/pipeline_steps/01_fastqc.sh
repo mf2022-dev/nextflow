@@ -71,14 +71,14 @@ if [ -d "$INPUT_DIR" ]; then
     echo "$FASTQ_FILES"
     echo ""
     
-    # Run FastQC on all files
+    # Run FastQC on all files with default parameters (as per paper)
     echo "Running FastQC..."
-    fastqc -o "$OUTPUT_DIR" -t 4 $FASTQ_FILES
+    fastqc -o "$OUTPUT_DIR" $FASTQ_FILES
     
 elif [ -f "$INPUT_DIR" ]; then
     # Single file
     echo "Processing single file: $INPUT_DIR"
-    fastqc -o "$OUTPUT_DIR" -t 4 "$INPUT_DIR"
+    fastqc -o "$OUTPUT_DIR" "$INPUT_DIR"
 else
     echo "ERROR: Input path does not exist: $INPUT_DIR"
     exit 1

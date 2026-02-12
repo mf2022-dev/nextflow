@@ -67,6 +67,7 @@ if [ ! -f "$ASSEMBLY" ]; then
 fi
 
 # Run Prokka with default parameters (as per paper)
+# Paper states: "annotated using Prokka (version 1.14.6) with default parameters"
 echo "Running Prokka annotation..."
 echo ""
 
@@ -77,7 +78,6 @@ prokka \
     --species "coli" \
     --strain "$SAMPLE_NAME" \
     --kingdom Bacteria \
-    --cpus 4 \
     --force \
     "$ASSEMBLY"
 

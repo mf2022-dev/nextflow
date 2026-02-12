@@ -75,15 +75,14 @@ if [ ! -f "$READ2" ]; then
 fi
 
 # Run Unicycler with default parameters (as per paper)
+# Paper states: "assembled using Unicycler (version 0.4.8) with default parameters"
 echo "Running Unicycler assembly..."
 echo ""
 
 unicycler \
     -1 "$READ1" \
     -2 "$READ2" \
-    -o "$OUTPUT_DIR/${SAMPLE_NAME}_assembly" \
-    -t 4 \
-    --verbosity 2
+    -o "$OUTPUT_DIR/${SAMPLE_NAME}_assembly"
 
 echo ""
 echo "✓ Assembly completed"
