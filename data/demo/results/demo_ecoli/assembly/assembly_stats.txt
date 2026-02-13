@@ -3,7 +3,7 @@ Genome Assembly Statistics
 ========================================
 Sample: demo_ecoli
 Assembler: Unicycler v0.4.8
-Date: 2026-02-11 06:53:02
+Date: 2026-02-12 12:36:18
 
 Assembly Metrics:
   - Total Length: 1181 bp

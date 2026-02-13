@@ -2,7 +2,7 @@
 FastQC Quality Control Report
 ========================================
 Sample: demo_ecoli
-Date: 2026-02-11 06:53:02
+Date: 2026-02-12 12:36:18
 
 Basic Statistics:
   - Total Sequences: 2,450,892

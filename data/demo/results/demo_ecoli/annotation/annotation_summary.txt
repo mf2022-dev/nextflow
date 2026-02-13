@@ -3,7 +3,7 @@ Genome Annotation Summary
 ========================================
 Sample: demo_ecoli
 Annotator: Prokka v1.14.6
-Date: 2026-02-11 06:53:02
+Date: 2026-02-12 12:36:18
 
 Annotation Statistics:
   - Predicted CDSs: 4,872
