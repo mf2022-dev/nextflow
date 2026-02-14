@@ -1,5 +1,8 @@
 import { Tutorial } from '@/lib/types/tutorial';
 import { genomicCharacterizationUPEC } from './genomic-upec';
+import { nextflowGenomicsMaster } from './nextflow-genomics-master';
+import { mlstTypingDeepDive } from './mlst-typing-deep-dive';
+import { amrDetectionMasterclass } from './amr-detection-masterclass';
 
 export const introToBioinformatics: Tutorial = {
   id: 'intro-to-bioinformatics',
@@ -378,7 +381,10 @@ Let's check what you've learned!`,
 // Export all tutorials
 export const tutorials = [
   introToBioinformatics,
-  genomicCharacterizationUPEC
+  genomicCharacterizationUPEC,
+  mlstTypingDeepDive,
+  amrDetectionMasterclass,
+  nextflowGenomicsMaster
 ];
 
 // Helper to get tutorial by slug
